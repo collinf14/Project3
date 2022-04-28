@@ -31,7 +31,8 @@ def songs_browse(page):
 def songs_upload():
     form = csv_upload()
     if form.validate_on_submit():
-        log = logging.getLogger("myApp")
+        log = logging.getLogger("csv")
+        log.info("CSV Upload log")
 
         filename = secure_filename(form.file.data.filename)
         filepath = os.path.join(current_app.config['UPLOAD_FOLDER'], filename)
